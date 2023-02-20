@@ -1,35 +1,31 @@
 package com.spring.fizzBuzzV2.controller;
 
+import com.spring.fizzBuzzV2.service.FizzBuzzService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
-@WebMvcTest
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class FizzBuzzControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+    @InjectMocks
+    FizzBuzzController fizzBuzzController;
 
-    @Autowired
-    WebApplicationContext webApplicationContext;
+    @Mock
+    private FizzBuzzService fizzBuzzService;
 
     @Test
     public void testNumber() throws Exception {
-        MockMvc mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-        String uri = "/fizzbuzz/2";
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
-        MockHttpServletResponse content = mvcResult.getResponse();
-        assertEquals(2, 2);
+        when(fizzBuzzService.getSubstitution(2)).thenReturn(2);
+        int result = fizzBuzzController.get(2);
+        assertEquals(2, result);
     }
 
 }
