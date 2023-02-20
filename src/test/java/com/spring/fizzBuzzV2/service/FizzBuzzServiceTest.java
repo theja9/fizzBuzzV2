@@ -26,4 +26,12 @@ public class FizzBuzzServiceTest {
         assertEquals("fizz", actualResult);
     }
 
+    @Test
+    public void testBuzzDivisibleBy5(){
+        String actualResult = service.getSubstitution(5);
+        assertEquals("buzz", actualResult);
+    }
+
+
+
 }
