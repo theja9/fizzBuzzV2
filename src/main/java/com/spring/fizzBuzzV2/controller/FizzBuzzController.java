@@ -15,7 +15,7 @@ public class FizzBuzzController {
     FizzBuzzService fizzBuzzService;
 
     @GetMapping("/{num}")
-    public int get(@PathVariable int num) {
+    public String get(@PathVariable int num) {
         return fizzBuzzService.getSubstitution(num);
     }
 

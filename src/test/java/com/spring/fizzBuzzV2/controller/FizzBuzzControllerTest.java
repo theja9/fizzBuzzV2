@@ -23,9 +23,9 @@ public class FizzBuzzControllerTest {
 
     @Test
     public void testNumber() throws Exception {
-        when(fizzBuzzService.getSubstitution(2)).thenReturn(2);
-        int result = fizzBuzzController.get(2);
-        assertEquals(2, result);
+        when(fizzBuzzService.getSubstitution(2)).thenReturn("2");
+        String result = fizzBuzzController.get(2);
+        assertEquals("2", result);
     }
 
 }

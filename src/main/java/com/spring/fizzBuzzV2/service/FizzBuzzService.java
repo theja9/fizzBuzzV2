@@ -4,7 +4,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FizzBuzzService {
-    public int getSubstitution(int num) {
-        return num;
+    public String getSubstitution(int num) {
+        if (num % 3 == 0) {
+            return "fizz";
+        }
+        return String.valueOf(num);
     }
 }

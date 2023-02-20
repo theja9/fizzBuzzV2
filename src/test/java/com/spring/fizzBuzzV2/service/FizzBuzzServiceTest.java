@@ -9,7 +9,15 @@ public class FizzBuzzServiceTest {
     @Test
     public void testNumber() {
         FizzBuzzService service = new FizzBuzzService();
-        int actualResult = service.getSubstitution(1);
-        assertEquals(1, actualResult);
+        String actualResult = service.getSubstitution(1);
+        assertEquals("1", actualResult);
     }
+
+    @Test
+    public void testFizzDivisibleBy3(){
+        FizzBuzzService service = new FizzBuzzService();
+        String actualResult = service.getSubstitution(9);
+        assertEquals("fizz", actualResult);
+    }
+
 }
