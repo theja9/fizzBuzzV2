@@ -5,15 +5,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class FizzBuzzService {
     public String getSubstitution(int num) {
-        if (num % 3 == 0 && num % 5 == 0) {
+        if (isMultipleOf3(num) && isMultipleOf5(num)) {
             return "fizz buzz";
         }
-        if (num % 3 == 0) {
+        if (isMultipleOf3(num)) {
             return "fizz";
         }
-        if (num % 5 == 0) {
+        if (isMultipleOf5(num)) {
             return "buzz";
         }
         return String.valueOf(num);
+    }
+
+    private boolean isMultipleOf3(int number) {
+        return number % 3 == 0;
+    }
+
+    private boolean isMultipleOf5(int number) {
+        return number % 5 == 0;
     }
 }
