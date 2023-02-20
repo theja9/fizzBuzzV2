@@ -32,6 +32,10 @@ public class FizzBuzzServiceTest {
         assertEquals("buzz", actualResult);
     }
 
-
+    @Test
+    public void testFizzBuzz(){
+        String actualResult = service.getSubstitution(15);
+        assertEquals("fizz buzz", actualResult);
+    }
 
 }
